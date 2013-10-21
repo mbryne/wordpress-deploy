@@ -13,6 +13,9 @@ if ( file_exists( dirname( __FILE__ ) . '/local-config.php' ) ) {
 	define( 'DB_HOST', '%%DB_HOST%%' ); // Probably 'localhost'
 }
 
+define( 'WP_SITEURL', 	'http://' . $_SERVER['SERVER_NAME'] . '/wp');
+define( 'WP_HOME', 		'http://' . $_SERVER['SERVER_NAME']);
+
 // ========================
 // Custom Content Directory
 // ========================
