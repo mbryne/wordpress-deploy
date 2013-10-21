@@ -1,17 +1,17 @@
-set :user, "mbryne"
-
-set :application, "wordpress-deploy"
-set :repository,  "https://github.com/mbryne/wordpress-deploy.git"
-
-set :git_enable_submodules, 1
-
-ssh_options[:forward_agent] = true
-ssh_options[:keys] =  'C:/Projects/references/putty/mbryne_private.ppk'
+#   basic variables
 
 set :scm, :git
-set :deploy_to, "/home/mbryne/website"
-
 set :deploy_via, :remote_cache
 set :copy_exclude, [".git", ".DS_Store", ".gitignore", ".gitmodules"]
+set :keep_releases, 5
 
-server "www.mbryne.com", :app
+#   custom variables
+
+load 'config/config'
+
+#   deployment process
+
+before( "deploy", "git:submodule_tags" ) if git_enable_submodules
+
+after "deploy:create_symlink", "wordpress:create_symlinks"
+after "deploy:update_code", "db:make_config"
