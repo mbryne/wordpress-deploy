@@ -15,6 +15,11 @@ ssh_options[:keys] =  'C:/Projects/references/putty/mbryne_private.ppk'
 set :repository,  "https://github.com/mbryne/wordpress-deploy.git"
 set :git_enable_submodules, 1
 
+# environments
+
+set :production_deploy_to, '/home/mbryne/website'
+set :staging_domain, 'staging.wordpress.mbryne.com'
+
 # database
 set :wpdb do
 	{
