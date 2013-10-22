@@ -20,7 +20,7 @@ define( 'WP_HOME', 		'http://' . $_SERVER['SERVER_NAME']);
 // Custom Content Directory
 // ========================
 define( 'WP_CONTENT_DIR', dirname( __FILE__ ) . '/content' );
-define( 'WP_CONTENT_URL', 'http://' . $_SERVER['HTTP_HOST'] . '/content' );
+define( 'WP_CONTENT_URL', 'http://' . $_SERVER['HTTP_HOST'] . ':88/content' );
 
 // ================================================
 // You almost certainly do not want to change these
